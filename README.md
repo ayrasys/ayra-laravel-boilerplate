@@ -13,7 +13,7 @@
 5.  run  `cp .env.example .env`
 6.  Configure your `.env` file
 7.  php artisan key:generate
-8.  composer instal
+8.  composer install
 9.  sudo chmod -R 775 storage //for linux 
 10. sudo chmod -R 775 bootrape //for linux 
 11. php artisan db:seed
