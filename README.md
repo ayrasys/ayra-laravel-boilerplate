@@ -19,4 +19,6 @@
 11. php artisan db:seed
 
 
+contact : ajayit2020@gmail.com
+
 
