@@ -1,5 +1,5 @@
 ## Ayra Laravel Boilerplate
-#### Ayra Laravel Boilerplate is a Complete Build of Laravel 5.7 with  Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system.
+#### Ayra Laravel Boilerplate is a Complete Build of Laravel 5.7 with  Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system and theme management 
 
 ### Installation Instructions
 1. Run `git clone https://github.com/ayrasys/ayra-laravel-boilerplate`
