@@ -12,7 +12,7 @@ use DB;
 use Hash;
 use Theme;
 use Auth;
-
+use App\Helpers\AyraHelp;
 class UserController extends Controller
 {
 
@@ -26,6 +26,9 @@ class UserController extends Controller
     public function getUserDashboard(Request $request){
         $slug_name = $request->slug;
         $users = Auth::user();
+        echo $email=AyraHelp::getEmail(Auth::user()->id);
+        die;
+
        
         if($users->slug==$slug_name){
             $theme = Theme::uses('userdashboard')->layout('layout');
