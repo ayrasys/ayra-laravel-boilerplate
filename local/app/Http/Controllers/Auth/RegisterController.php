@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use DB;
 class RegisterController extends Controller
 {
     /*
@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -63,10 +63,43 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user=User::create([
             'name' => $data['name'],
+            'username' => $this->unique_random('users', 'username', 10),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+         $user->assignRole('User');
+         return $user;
     }
+
+    function unique_random($table, $col, $chars = 11){
+        $unique = false;
+        $chars=rand(10000000009, 99999999999);
+
+        $tested = [];
+        do{
+            // Generate random string of characters
+            $random =$chars;
+            // Check if it's already testing
+            // If so, don't query the database again
+            if( in_array($random, $tested) ){
+                continue;
+            }
+            // Check if it is unique in the database
+            $count = DB::table($table)->where($col, '=', $random)->count();
+            // Store the random character in the tested array
+            // To keep track which ones are already tested
+            $tested[] = $random;
+            // String appears to be unique
+            if( $count == 0){
+                // Set unique to true to break the loop
+                $unique = true;
+            }
+
+        }
+        while(!$unique);
+        return $random;
+    }
+
 }

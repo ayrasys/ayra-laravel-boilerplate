@@ -10,10 +10,38 @@ use App\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
-
+use Theme;
+use Auth;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
+     * show user home
+     */
+    public function getUserDashboard(Request $request){
+        $slug_name = $request->slug;
+        $users = Auth::user();
+       
+        if($users->slug==$slug_name){
+            $theme = Theme::uses('userdashboard')->layout('layout');
+            $data = ['info' => 'Hello World'];        
+            return $theme->scope('index', $data)->render();
+        }else{
+            return response()->view('404', [], 500);
+        }
+       
+
+
+       
+
+        
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 use Eloquent;
 
 // use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +18,8 @@ class User extends Authenticatable
 {
     use Notifiable;
     use HasRoles;
-         use AuthenticableTrait;
+    use AuthenticableTrait;
+    use HasSlug;
 
 
     /**
@@ -25,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','provider','provider_id'
+        'username','name', 'email', 'password','provider','provider_id'
     ];
 
     /**
@@ -36,4 +39,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('username')
+            ->saveSlugsTo('slug');
+    }
 }

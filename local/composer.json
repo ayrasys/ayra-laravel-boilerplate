@@ -12,7 +12,8 @@
         "laravel/socialite": "^3.2",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.7",
-        "spatie/laravel-permission": "^2.25"
+        "spatie/laravel-permission": "^2.25",
+        "spatie/laravel-sluggable": "^2.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Theme;
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('guest');
     }
 
     /**
@@ -25,10 +26,18 @@ class HomeController extends Controller
     public function index()
     {
         
+        
        //$users = User::role('admin')->get(); 
-       $user = auth()->user();
-       $userRoles = $user->getRoleNames();
-       switch($userRoles[0]){
+       $userRoles=[];
+       if (Auth::user()) {   // Check is user logged in
+        $user = auth()->user();
+        $userRoles = $user->getRoleNames();
+        $user_role = $userRoles[0];
+       }else{
+        $user_role='GUEST';
+       }
+       
+       switch($user_role){
         case 'Admin': 
         return $this->AdminDashboard();
         break;
@@ -37,7 +46,7 @@ class HomeController extends Controller
         break;
         
         default:     
-        echo "Default User";
+        return $this->Front();
         break;
        } 
        
@@ -54,5 +63,10 @@ class HomeController extends Controller
         $data = ['info' => 'Hello World'];        
         return $theme->scope('index', $data)->render();
     }
-    
+    public function Front(){
+        $theme = Theme::uses('default')->layout('layout');
+        $data = ['info' => 'Hello World'];        
+        return $theme->scope('index', $data)->render();
+    }
+
 }
