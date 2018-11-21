@@ -22,9 +22,9 @@
         <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}">
                 <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/vendors/base/vendors.bundle.css') }}">
         <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/demo/default/base/style.bundle.css') }}">
-      
 
-        
+
+
 
         <title>@get('title')</title>
 
@@ -41,11 +41,8 @@
         @partial('footer')
         <!-- @scripts() -->
         <!-- <script src="{{ asset('local/public/themes/admin/assets/core/vendors/langlist_datagrid.js') }}"></script> -->
-        <script type="text/javascript">
-              BASE_URL=$('meta[name="csrf-base"]').attr('content');
-			  CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        </script>
-        
+
+
         <script src="{{ asset('local/public/themes/admin/assets/core/vendors/base/vendors.bundle.js') }}"></script>
 
         <script src="{{ asset('local/public/themes/admin/assets/core/demo/default/base/scripts.bundle.js') }}"></script>
@@ -54,7 +51,10 @@
         <script src="{{ asset('local/public/themes/admin/assets/core/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
         <script src="{{ asset('local/public/themes/admin/assets/core/app/js/dashboard.js') }}"></script>
 
-
+        <script type="text/javascript">
+              BASE_URL=$('meta[name="csrf-base"]').attr('content');
+        CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        </script>
 
     </body>
 

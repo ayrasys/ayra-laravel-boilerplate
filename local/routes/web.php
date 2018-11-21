@@ -17,8 +17,9 @@ Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallba
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/{slug}', 'UserController@getUserDashboard')->name('getUserDashboard');
+
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('products','ProductController');
+    Route::get('/{slug}', 'UserController@getUserDashboard')->name('getUserDashboard');
 });

@@ -26,23 +26,19 @@ class UserController extends Controller
     public function getUserDashboard(Request $request){
         $slug_name = $request->slug;
         $users = Auth::user();
-        echo $email=AyraHelp::getEmail(Auth::user()->id);
-        die;
-
-       
+        $email=AyraHelp::getEmail(Auth::user()->id);
         if($users->slug==$slug_name){
             $theme = Theme::uses('userdashboard')->layout('layout');
-            $data = ['info' => 'Hello World'];        
+            $data = ['info' => 'Hello World'];
             return $theme->scope('index', $data)->render();
         }else{
-            return response()->view('404', [], 500);
+
+          // $value = config('ayra.sex'); //custom call of config file this ways
+          // echo "<pre>";
+          // print_r($value);
+          // die;
+          abort(404);
         }
-       
-
-
-       
-
-        
     }
 
     /**
@@ -50,7 +46,13 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request){
+      $theme = Theme::uses('admin')->layout('layout');
+      $data = ['info' => 'Hello World'];
+      return $theme->scope('users.index', $data)->render();
+
+    }
+    public function index_(Request $request)
     {
         $data = User::orderBy('id','DESC')->paginate(5);
         return view('users.index',compact('data'))
@@ -66,7 +68,9 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::pluck('name','name')->all();
-        return view('users.create',compact('roles'));
+        $theme = Theme::uses('admin')->layout('layout');
+        $data = ['roles' => $roles];
+        return $theme->scope('users.create', $data)->render();
     }
 
 
@@ -108,7 +112,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('users.show',compact('user'));
+
+        $theme = Theme::uses('admin')->layout('layout');
+        $data = ['user' => $user];
+        return $theme->scope('users.show', $data)->render();
+
     }
 
 
@@ -125,7 +133,16 @@ class UserController extends Controller
         $userRole = $user->roles->pluck('name','name')->all();
 
 
-        return view('users.edit',compact('user','roles','userRole'));
+      //  return view('users.edit',compact('user','roles','userRole'));
+
+        $theme = Theme::uses('admin')->layout('layout');
+        $data = [
+          'user' => $user,
+            'roles' => $roles,
+              'userRole' => $userRole
+        ];
+        return $theme->scope('users.edit', $data)->render();
+
     }
 
 
@@ -147,10 +164,10 @@ class UserController extends Controller
 
 
         $input = $request->all();
-        if(!empty($input['password'])){ 
+        if(!empty($input['password'])){
             $input['password'] = Hash::make($input['password']);
         }else{
-            $input = array_except($input,array('password'));    
+            $input = array_except($input,array('password'));
         }
 
 

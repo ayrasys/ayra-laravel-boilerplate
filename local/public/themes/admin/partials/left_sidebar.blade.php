@@ -258,26 +258,47 @@
 							</li>
 							<li class="m-menu__section ">
 								<h4 class="m-menu__section-text">
-									System
+									System Setup
 								</h4>
 								<i class="m-menu__section-icon flaticon-more-v3"></i>
 							</li>
-							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+
+							<?php
+					    $route_name=AyraHelp::getRouteName();
+
+							?>
+							<?php
+							if(str_split($route_name,5)[0]=='users'){
+								$menu_class='m-menu__item m-menu__item--submenu m-menu__item--open m-menu__item--hover';
+								$menu_style="display: block; overflow: hidden;";
+							}else{
+								$menu_class='m-menu__item  m-menu__item--submenu';
+								$menu_style="";
+							}
+							?>
+
+							<li class="{{$menu_class}}" aria-haspopup="true"  m-menu-submenu-toggle="hover">
 								<a  href="javascript:;" class="m-menu__link m-menu__toggle">
 									<i class="m-menu__link-icon flaticon-clipboard"></i>
 									<span class="m-menu__link-text">
-										Applications
+										Manager Users
+										<span class="m-menu__link-badge">
+											<span class="m-badge m-badge--accent">
+												3
+											</span>
+										</span>
 									</span>
 									<i class="m-menu__ver-arrow la la-angle-right"></i>
 								</a>
-								<div class="m-menu__submenu ">
+								<div class="m-menu__submenu " style="{{$menu_style}}">
 									<span class="m-menu__arrow"></span>
 									<ul class="m-menu__subnav">
 										<li class="m-menu__item  m-menu__item--parent" aria-haspopup="true" >
 											<span class="m-menu__link">
 												<span class="m-menu__link-text">
-													Applications
+													User Management
 												</span>
+
 											</span>
 										</li>
 										<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
@@ -286,7 +307,12 @@
 													<span></span>
 												</i>
 												<span class="m-menu__link-text">
-													Audit
+													Users
+													<span class="m-menu__link-badge">
+														<span class="m-badge m-badge--accent">
+															3
+														</span>
+													</span>
 												</span>
 											</a>
 										</li>
@@ -296,7 +322,7 @@
 													<span></span>
 												</i>
 												<span class="m-menu__link-text">
-													Notifications
+													Roles
 												</span>
 											</a>
 										</li>
@@ -306,7 +332,7 @@
 													<span></span>
 												</i>
 												<span class="m-menu__link-text">
-													Messages
+													Permissions
 												</span>
 											</a>
 										</li>
