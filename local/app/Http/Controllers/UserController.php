@@ -13,6 +13,7 @@ use Hash;
 use Theme;
 use Auth;
 use App\Helpers\AyraHelp;
+use Illuminate\Support\Facades\Redis;
 class UserController extends Controller
 {
 
@@ -47,9 +48,24 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-      $theme = Theme::uses('admin')->layout('layout');
-      $data = ['info' => 'Hello World'];
-      return $theme->scope('users.index', $data)->render();
+
+   if ($users = Redis::get('users.all')) {
+  $users_data=$users;
+  }else{
+
+  $users = User::get();
+  Redis::set('users.all', $users);
+  $users_data=$users;
+
+  }
+
+
+   $theme = Theme::uses('admin')->layout('layout');
+   $data = ['data' =>$users_data];
+   return $theme->scope('users.index', $data)->render();
+
+
+
 
     }
     public function index_(Request $request)
