@@ -17,12 +17,14 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('username')->nullable()->default(NULL);
             $table->string('name');
-            $table->string('slug');            
+            $table->string('slug');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable()->default(NULL);
             $table->string('provider')->nullable()->default(NULL);
             $table->string('provider_id')->nullable()->default(NULL);
+            $table->enum('status', ['1', '0','2','3']);
+            $table->enum('is_read', ['0', '1']);
             $table->rememberToken();
             $table->timestamps();
         });

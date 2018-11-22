@@ -1,16 +1,15 @@
-var DatatableRemoteAjaxproductMasterList = {
+var DatatableUsersList = {
     init: function() {
         var t;
-        base_url=$('meta[name="csrf-base"]').attr('content');
 
-        base_url_img="local/public/upload/";
 
-        t = $(".m_datatable_productmasterlist").mDatatable({
+
+        t = $(".m_datatable_users_list").mDatatable({
             data: {
                 type: "remote",
                 source: {
                     read: {
-                        url: base_url+"/api/getMasterProductList",
+                        url: BASE_URL+"/api/getUsersList",
                         map: function(t) {
                             var e = t;
                             return void 0 !== t.data && (e = t.data), e
@@ -46,36 +45,7 @@ var DatatableRemoteAjaxproductMasterList = {
                 width: 40,
                 selector: !1,
                 textAlign: "center"
-            },  {
-                field: "logo",
-                title: "Photo",
-                attr: {
-                    nowrap: "nowrap"
-                },
-                width: 150,
-                template: function(t) {
-
-                    if(t.logo==""){
-                      //  return '<img class="m--img-rounded m--marginless ajrows" alt="photo" style="width:60px; height:60px;" src='+t.logo+'>'
-                          return '<a href="javascript:void(0)" id="'+t.id+'"  title="Add Images" class="btn btn-brand m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill m-btn--air ajrows">\
-                  									<i class="flaticon-plus"></i>\
-                  								</a>'
-                    }else{
-                        logo_img=base_url_img+t.logo;
-                        return '<div class="m-card-user m-card-user--sm">\
-                          <div class="m-card-user__pic">\
-                              <img src="'+logo_img+'" id="'+t.id+'" class="m--img-rounded m--marginless " alt="'+t.name+'">\
-                          </div>\
-                          <div class="m-card-user__details">\
-                              <span class="m-card-user__name">'+t.name+'</span>\
-                              <a href="javascript:void(0)" id="'+t.id+'" class="m-card-user__email m-link ajrowproductview">'+t.product_details+'</a>\
-                              <a style="color:rgb(88, 103, 221)" href="javascript:void(0)" id="'+t.id+'" class="m-card-user__email m-link ajrows">Change</a>\
-                          </div>\
-                      </div>'
-                    }
-
-                }
-            }, {
+            },   {
                 field: "name",
                 title: "Name"
             },{
@@ -84,27 +54,37 @@ var DatatableRemoteAjaxproductMasterList = {
                 template: function(t) {
                     var e = {
                         0: {
-                            title: "Pending",
-                            class: "m-badge--brand"
+                            title: "Deactive",
+                            class: "m-badge--warning"
                         },
                         1: {
                             title: "Active",
-                            class: "m-badge--brand"
+                            class: "m-badge--success"
                         }
 
                     };
                     return '<span class="m-badge ' + e[t.status].class + ' m-badge--wide">' + e[t.status].title + "</span>"
                 }
+
             },{
-                field: "mf_name",
-                title: "Manufacture By",
+                field: "role",
+                title: "Role",
                 template: function(t) {
-                  if(t.mf_name==""){
-                      return 'N/A'
-                  }else{
-                      return '<a href="'+t.mf_id+'">'+t.mf_name+'</a>'
-                  }
+                    var e = {
+                        'Admin': {
+                            title: "Adminstrator",
+                            class: "m-badge--info"
+                        },
+                        'User': {
+                            title: "User",
+                            class: "m-badge--brand"
+                        }
+
+                    };
+                    return '<span class="m-badge ' + e[t.role].class + ' m-badge--wide">' + e[t.role].title + "</span>"
                 }
+
+
             },  {
                 field: "Actions",
                 width: 110,
@@ -152,43 +132,23 @@ var DatatableRemoteAjaxproductMasterList = {
     }
 };
 jQuery(document).ready(function() {
-    DatatableRemoteAjaxproductMasterList.init();
+    DatatableUsersList.init();
 });
 
 $(document).ready(function() {
-    var interval = setInterval(function() {
-        var momentNow = moment();
-        $('.np_time_date').html(momentNow.format('DD MMM YYYY') + ' <span class="m-badge m-badge--primary m-badge--wide">'+momentNow.format('dddd').substring(0,3).toUpperCase()+'</span>'+momentNow.format(' hh:mm:ss A') );
-        $('#time-part').html(momentNow.format('A hh:mm:ss'));
-    }, 100);
-  //slug for product
-  $('#product_name').keyup(function(){
-    $('#product_slug').css('background','#F1f1f1',).css('border-color','#f1b10e');
-    var product_name=$(this).val();
-
-    str = product_name.replace(/ /g, '-');
-      var base_urll=$('meta[name="csrf-base"]').attr('content');
-    $('#product_slug').val(base_urll+"/np/"+str);
-  });
+         // alert('test');
+         //
+         //
+$('.backMe').click(function(){
+  window.history.back();
+});
 
 
-      // alert('test');
-      $(".aj_slug_edit").click(function(event){
-       event.preventDefault();
-         $('#product_slug').css('background','',).css('border-color','');
-       $('#product_slug').removeAttr("disabled");
-     });
-     $( "#product_id" ).focusout(function() {
-          // $('#product_slug').css('background','#F1f1f1',).css('border-color','#f1b10e');
-          alert(534534);
-      })
-
-
-
-
+$.key('ctrl+k', function() {
+    window.history.back();
+});
   $.key('ctrl+l', function() {
-      var base_urll=$('meta[name="csrf-base"]').attr('content');
-      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
       swal({
           title: "Are you sure want to logout?",
           type: "warning",
@@ -200,11 +160,11 @@ $(document).ready(function() {
         if(ey.value){
 
           $.ajax({
-               url:base_urll+"/logout",
+               url:BASE_URL+"/logout",
                type: 'POST',
                data: {_token: CSRF_TOKEN},
                success: function (resp) {
-                  window.location.href=base_urll;
+                  window.location.href=BASE_URL;
                }
            });
 
@@ -235,6 +195,6 @@ $.key('ctrl+c', function() {
 });
 
 $(document).key('ctrl+shift+a', function() {
-    var base_urll=$('meta[name="csrf-base"]').attr('content');
-  window.location.href=base_urll;
+
+  window.location.href=BASE_URL;
 });

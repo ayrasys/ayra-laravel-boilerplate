@@ -50,9 +50,10 @@
         <script src="{{ asset('local/public/themes/admin/assets/core/vendors/custom_admin.js') }}"></script>
         <script src="{{ asset('local/public/themes/admin/assets/core/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
         <script src="{{ asset('local/public/themes/admin/assets/core/app/js/dashboard.js') }}"></script>
+        <script src="{{ asset('local/public/themes/admin/assets/core/vendors/users_list.js') }}"></script>
 
         <script type="text/javascript">
-              BASE_URL=$('meta[name="csrf-base"]').attr('content');
+        BASE_URL=$('meta[name="csrf-base"]').attr('content');
         CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         </script>
 

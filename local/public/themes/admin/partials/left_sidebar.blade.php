@@ -120,7 +120,7 @@
 													<span></span>
 												</i>
 												<span class="m-menu__link-text">
-													Users
+													Users ff
 												</span>
 											</a>
 										</li>
@@ -284,7 +284,7 @@
 										Manager Users
 										<span class="m-menu__link-badge">
 											<span class="m-badge m-badge--accent">
-												3
+											  {{AyraHelp::getNewUserCount()}}
 											</span>
 										</span>
 									</span>
@@ -302,7 +302,7 @@
 											</span>
 										</li>
 										<li class="m-menu__item " aria-haspopup="true"  m-menu-link-redirect="1">
-											<a  href="inner.html" class="m-menu__link ">
+											<a  href="{{ route('users.index')}}" class="m-menu__link ">
 												<i class="m-menu__link-bullet m-menu__link-bullet--dot">
 													<span></span>
 												</i>
@@ -310,7 +310,7 @@
 													Users
 													<span class="m-menu__link-badge">
 														<span class="m-badge m-badge--accent">
-															3
+														  {{AyraHelp::getNewUserCount()}}
 														</span>
 													</span>
 												</span>
