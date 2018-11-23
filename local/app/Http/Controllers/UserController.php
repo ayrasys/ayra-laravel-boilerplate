@@ -22,13 +22,17 @@ class UserController extends Controller
     {
         //$this->middleware('auth');
     }
+
+    public function getUserDetails(Request $request){
+        return $users_arr=User::where('id', $request->user_id)->first();
+    }
     public function getUsersList(Request $request){
 
     $users_arr=User::orderBy('id', 'desc')->get();
     $data_arr = array();
     $i=0;
    foreach ($users_arr as $key => $value) {
-$i++;
+     $i++;
     $data_arr[]=array(
       'id' => $i,
       'rowid' => $value->id,

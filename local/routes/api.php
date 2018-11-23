@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/getUsersList','UserController@getUsersList')->name('getUsersList');
+Route::post('/getUserDetails','UserController@getUserDetails')->name('getUserDetails');//get user details by id

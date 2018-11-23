@@ -3,6 +3,24 @@ function delete_user(rowid){
 }
 function edit_user(rowid){
    alert(rowid);
+
+   $('#m_edit_users').modal('show');
+
+}
+function view_user(rowid){
+     $.ajax({
+        url:BASE_URL+"/api/getUserDetails",
+        type: 'POST',
+        data: {_token: CSRF_TOKEN,user_id:rowid},
+        success: function (resp) {
+           console.log(resp);
+            $('#txtUserName').val(resp.name);
+            $('#m_view_users').modal('show');
+        }
+    });
+
+
+
 }
 
 
@@ -104,7 +122,7 @@ var DatatableUsersList = {
                 overflow: "visible",
                 template: function(t, e, a) {
                     var rowid=t.rowid;
-                    return '\t\t\t\t\t\t<div class="dropdown ' + (a.getPageSize() - e <= 4 ? "dropup" : "") +'">\t\t\t\t\t\t\t<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown"><i class="la la-ellipsis-h"></i></a>\t\t\t\t\t\t\t<div class="dropdown-menu dropdown-menu-right">\t\t\t\t\t\t    \t<a class="dropdown-item" href="#"><i class="la la-edit"></i>\
+                    return '\t\t\t\t\t\t<div class="dropdown ' + (a.getPageSize() - e <= 4 ? "dropup" : "") +'">\t\t\t\t\t\t\t<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown"><i class="la la-ellipsis-h"></i></a>\t\t\t\t\t\t\t<div class="dropdown-menu dropdown-menu-right">\t\t\t\t\t\t    \t<a class="dropdown-item" href="javascript:void(0)" onclick="view_user('+rowid+')"><i class="la la-edit"></i>\
                      View Details</a>\t\t\t\t\t\t\t<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\t\t\t\t\t\t \t<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\t\t\t\t\t\t  \t</div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<a href="javascript:void(0)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details" onclick="edit_user('+rowid+')" >\t\t\t\t\t\t\t<i class="la la-edit"></i>\t\t\t\t\t\t</a>\t\t\t\t\t\t<a href="javascript:void(0)" onclick="delete_user('+rowid+')"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">\t\t\t\t\t\t\t<i class="la la-trash"></i>\t\t\t\t\t\t</a>\t\t\t\t\t';
 
                 }
