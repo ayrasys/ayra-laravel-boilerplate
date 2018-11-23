@@ -75,12 +75,14 @@ class LoginController extends Controller
 
         $authUser = $this->findOrCreateUser($user, $social);
         Auth::login($authUser, true);
+
         return redirect($this->redirectTo);
     }
     public function findOrCreateUser($user, $provider)
     {
         $authUser = User::where('provider_id', $user->id)->first();
         if ($authUser) {
+	
             return $authUser;
         }
         $user =User::create([
@@ -90,6 +92,7 @@ class LoginController extends Controller
             'provider_id' => $user->id
         ]);
         $user->assignRole('User');
+	
     }
 
 
