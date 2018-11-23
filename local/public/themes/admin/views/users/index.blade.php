@@ -55,10 +55,10 @@
 								</div>
 								<div class="m-form__control">
 									<select class="form-control m-bootstrap-select" id="m_form_status">
-										<option value="">All</option>
-										<option value="1">Pending</option>
-										<option value="2">Delivered</option>
-										<option value="3">Canceled</option>
+										<option value="">All</option>										
+										<option value="deactive">Deactive</option>
+										<option value="active">Active</option>
+										
 									</select>
 								</div>
 							</div>
@@ -70,11 +70,13 @@
 									<label class="m-label m-label--single">Type:</label>
 								</div>
 								<div class="m-form__control">
-									<select class="form-control m-bootstrap-select" id="m_form_type">
+
+
+									<select class="form-control m-bootstrap-select" id="m_form_roles">
 										<option value="">All</option>
-										<option value="1">Online</option>
-										<option value="2">Retail</option>
-										<option value="3">Direct</option>
+										@foreach (\Spatie\Permission\Models\Role::all() as $role)
+												<option value="{{$role->name}}">{{$role->name}}</option>
+											@endforeach
 									</select>
 								</div>
 							</div>

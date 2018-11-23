@@ -53,11 +53,11 @@ var DatatableUsersList = {
                 title: "Status",
                 template: function(t) {
                     var e = {
-                        0: {
+                        'deactive': {
                             title: "Deactive",
                             class: "m-badge--warning"
                         },
-                        1: {
+                        'active': {
                             title: "Active",
                             class: "m-badge--success"
                         }
@@ -72,7 +72,7 @@ var DatatableUsersList = {
                 template: function(t) {
                     var e = {
                         'Admin': {
-                            title: "Adminstrator",
+                            title: "Admin",
                             class: "m-badge--info"
                         },
                         'User': {
@@ -125,9 +125,9 @@ var DatatableUsersList = {
             }]
         }), $("#m_form_status").on("change", function() {
             t.search($(this).val(), "status")
-        }), $("#m_form_type").on("change", function() {
-            t.search($(this).val(), "Type")
-        }), $("#m_form_status, #m_form_type").selectpicker()
+        }), $("#m_form_roles").on("change", function() {
+            t.search($(this).val(), "role")
+        }), $("#m_form_status, #m_form_roles").selectpicker()
 
     }
 };

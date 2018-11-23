@@ -14,6 +14,7 @@ use Theme;
 use Auth;
 use App\Helpers\AyraHelp;
 use Illuminate\Support\Facades\Redis;
+include 'class-list-util.php';
 class UserController extends Controller
 {
 
