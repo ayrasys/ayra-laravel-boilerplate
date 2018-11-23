@@ -22,7 +22,15 @@ class UserController extends Controller
     {
         //$this->middleware('auth');
     }
+    public function deleteUser(Request $request){
+    User::find($request->user_id)->delete();
+     //return true;
 
+     // User::withTrashed()
+     //    ->where('id',2)
+     //    ->restore();
+
+    }
     public function getUserDetails(Request $request){
         return $users_arr=User::where('id', $request->user_id)->first();
     }

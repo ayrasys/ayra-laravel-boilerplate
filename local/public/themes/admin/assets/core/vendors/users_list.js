@@ -1,10 +1,47 @@
 function delete_user(rowid){
-   alert(rowid);
+
+   swal({
+       title: "Are you sure?",
+       text: "You won't be able to revert this!",
+       type: "warning",
+       showCancelButton: !0,
+       confirmButtonText: "Yes,Delete",
+       cancelButtonText: "No, Cancel!",
+       reverseButtons: !1
+   }).then(function(ey) {
+     if(ey.value){
+
+       $.ajax({
+            url:BASE_URL+"/api/deleteUser",
+            type: 'POST',
+            data: {_token: CSRF_TOKEN,user_id:rowid},
+            success: function (resp) {
+               swal("Deleted!", "Your file has been deleted.", "success").then(function(eyz){
+                 if(eyz.value){
+                   window.location.href=BASE_URL;
+                 }
+               });
+
+            }
+        });
+
+     }
+
+   })
+
 }
 function edit_user(rowid){
-   alert(rowid);
+  $.ajax({
+     url:BASE_URL+"/api/getUserDetails",
+     type: 'POST',
+     data: {_token: CSRF_TOKEN,user_id:rowid},
+     success: function (resp) {
+        console.log(resp);
+          $('#edit_txtUserName').val(resp.name);
+          $('#m_edit_users').modal('show');
+     }
+ });
 
-   $('#m_edit_users').modal('show');
 
 }
 function view_user(rowid){
@@ -206,6 +243,5 @@ $.key('ctrl+c', function() {
 });
 
 $(document).key('ctrl+shift+a', function() {
-
   window.location.href=BASE_URL;
 });

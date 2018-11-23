@@ -23,8 +23,9 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable()->default(NULL);
             $table->string('provider')->nullable()->default(NULL);
             $table->string('provider_id')->nullable()->default(NULL);
-            $table->enum('status', ['1', '0','2','3']);
+            $table->enum('status', ['active', 'deactive']);
             $table->enum('is_read', ['0', '1']);
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

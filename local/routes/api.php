@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::post('/getUsersList','UserController@getUsersList')->name('getUsersList');
 Route::post('/getUserDetails','UserController@getUserDetails')->name('getUserDetails');//get user details by id
+Route::post('/deleteUser','UserController@deleteUser')->name('deleteUser');//delete user bu id

@@ -130,7 +130,7 @@
 											<span>
 											<i class="la la-arrow-left"></i>
 											<span>Back</span>
-                    
+
 											</span>
                     </button>
 										</div>
@@ -154,7 +154,7 @@
 
 		  <!-- form to save data  -->
 
-	</div>
+	
 </div>
 
 
