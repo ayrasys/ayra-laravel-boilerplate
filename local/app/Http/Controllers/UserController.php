@@ -23,7 +23,7 @@ class UserController extends Controller
         //$this->middleware('auth');
     }
     public function getUsersList(Request $request){
-             
+
     $users_arr=User::orderBy('id', 'desc')->get();
     $data_arr = array();
     $i=0;
@@ -31,11 +31,12 @@ class UserController extends Controller
 $i++;
     $data_arr[]=array(
       'id' => $i,
+      'rowid' => $value->id,
       'name' => $value->name,
       'email' => $value->email,
       'role' =>  $value->getRoleNames()[0],
       'status' =>  $value->status
-      
+
     );
   }
   $resp_jon= json_encode($data_arr);
@@ -158,17 +159,13 @@ $i++;
      */
     public function index(Request $request){
 
-   if ($users = Redis::get('users.all')) {
-  $users_data=$users;
-  }else{
-
-  $users = User::get();
-  Redis::set('users.all', $users);
-  $users_data=$users;
-
-  }
-
-
+      if ($users = Redis::get('users.all')) {
+        $users_data=$users;
+      }else{
+        $users = User::get();
+        Redis::set('users.all', $users);
+        $users_data=$users;
+      }
    $theme = Theme::uses('admin')->layout('layout');
    $data = ['data' =>$users_data];
    return $theme->scope('users.index', $data)->render();

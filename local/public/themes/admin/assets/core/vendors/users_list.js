@@ -1,7 +1,14 @@
+function delete_user(rowid){
+   alert(rowid);
+}
+function edit_user(rowid){
+   alert(rowid);
+}
+
+
 var DatatableUsersList = {
     init: function() {
         var t;
-
 
 
         t = $(".m_datatable_users_list").mDatatable({
@@ -12,6 +19,7 @@ var DatatableUsersList = {
                         url: BASE_URL+"/api/getUsersList",
                         map: function(t) {
                             var e = t;
+
                             return void 0 !== t.data && (e = t.data), e
                         }
                     }
@@ -52,6 +60,7 @@ var DatatableUsersList = {
                 field: "status",
                 title: "Status",
                 template: function(t) {
+                  //  console.log(t);
                     var e = {
                         'deactive': {
                             title: "Deactive",
@@ -70,6 +79,8 @@ var DatatableUsersList = {
                 field: "role",
                 title: "Role",
                 template: function(t) {
+
+
                     var e = {
                         'Admin': {
                             title: "Admin",
@@ -92,47 +103,29 @@ var DatatableUsersList = {
                 sortable: !1,
                 overflow: "visible",
                 template: function(t, e, a) {
-                //  console.log(t);
+                    var rowid=t.rowid;
+                    return '\t\t\t\t\t\t<div class="dropdown ' + (a.getPageSize() - e <= 4 ? "dropup" : "") +'">\t\t\t\t\t\t\t<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown"><i class="la la-ellipsis-h"></i></a>\t\t\t\t\t\t\t<div class="dropdown-menu dropdown-menu-right">\t\t\t\t\t\t    \t<a class="dropdown-item" href="#"><i class="la la-edit"></i>\
+                     View Details</a>\t\t\t\t\t\t\t<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\t\t\t\t\t\t \t<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\t\t\t\t\t\t  \t</div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<a href="javascript:void(0)" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details" onclick="edit_user('+rowid+')" >\t\t\t\t\t\t\t<i class="la la-edit"></i>\t\t\t\t\t\t</a>\t\t\t\t\t\t<a href="javascript:void(0)" onclick="delete_user('+rowid+')"  class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">\t\t\t\t\t\t\t<i class="la la-trash"></i>\t\t\t\t\t\t</a>\t\t\t\t\t';
 
-                  $('.ajrows').click(function(){
-                      var id=$(this).attr('id');
-                      $('input[name="product_id"]').val(id);
-                      $('#m_modal_1').modal('show');
-                  });
-                  // ajrowproductview
-                  $('.ajrowproductview').click(function(){
-                      var id=$(this).attr('id');
-                      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                      var base_urll=$('meta[name="csrf-base"]').attr('content');
-                       $.ajax({
-                            url:base_urll+"/api/getMasterProductListbyID",
-                            type: 'POST',
-                            data: {_token: CSRF_TOKEN,product_id:id},
-                            success: function (resp) {
-
-                              $('.proinfo').html("Information of "+resp.name);
-                              $('#m-p-name').html(resp.name);
-                              $('#np_product_title').html(resp.name);
-                              $('#np_product_title').html(resp.name);
-                            }
-                        });
-                      $('#np_product_title').html(id);
-                      $('#m_modal_productView').modal('show');
-                  });
-
-                    return '\t\t\t\t\t\t<div class="dropdown ' + (a.getPageSize() - e <= 4 ? "dropup" : "") +'">\t\t\t\t\t\t\t<a href="#" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">                                <i class="la la-ellipsis-h"></i>                            </a>\t\t\t\t\t\t  \t<div class="dropdown-menu dropdown-menu-right">\t\t\t\t\t\t    \t<a class="dropdown-item" href="#"><i class="la la-edit"></i> Edit Details</a>\t\t\t\t\t\t    \t<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>\t\t\t\t\t\t    \t<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>\t\t\t\t\t\t  \t</div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">\t\t\t\t\t\t\t<i class="la la-edit"></i>\t\t\t\t\t\t</a>\t\t\t\t\t\t<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">\t\t\t\t\t\t\t<i class="la la-trash"></i>\t\t\t\t\t\t</a>\t\t\t\t\t'
                 }
-            }]
+
+            }
+
+          ]
         }), $("#m_form_status").on("change", function() {
             t.search($(this).val(), "status")
         }), $("#m_form_roles").on("change", function() {
             t.search($(this).val(), "role")
         }), $("#m_form_status, #m_form_roles").selectpicker()
 
+
     }
 };
 jQuery(document).ready(function() {
     DatatableUsersList.init();
+
+
+
 });
 
 $(document).ready(function() {
