@@ -20,12 +20,8 @@
     		</script>
         <!--end::Web font -->
         <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}">
-                <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/vendors/base/vendors.bundle.css') }}">
+        <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/vendors/base/vendors.bundle.css') }}">
         <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/demo/default/base/style.bundle.css') }}">
-
-
-
-
         <title>@get('title')</title>
 
         <!-- @styles() -->

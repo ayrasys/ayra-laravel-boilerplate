@@ -7,7 +7,7 @@ return array(
 	| Inherit from another theme
 	|--------------------------------------------------------------------------
 	|
-	| Set up inherit from another if the file is not exists, this 
+	| Set up inherit from another if the file is not exists, this
 	| is work with "layouts", "partials", "views" and "widgets"
 	|
 	| [Notice] assets cannot inherit.
@@ -21,7 +21,7 @@ return array(
 	| Listener from events
 	|--------------------------------------------------------------------------
 	|
-	| You can hook a theme when event fired on activities this is cool 
+	| You can hook a theme when event fired on activities this is cool
 	| feature to set up a title, meta, default styles and scripts.
 	|
 	| [Notice] these event can be override by package config.
@@ -32,7 +32,7 @@ return array(
 
 		'before' => function($theme)
 		{
-			$theme->setTitle('Title example');
+			$theme->setTitle('Home Front');
 			$theme->setAuthor('Jonh Doe');
 		},
 
@@ -53,7 +53,7 @@ return array(
 
 			// Or you may use this event to set up your assets.
 			/*
-			$asset->themePath()->add('core', 'core.js');			
+			$asset->themePath()->add('core', 'core.js');
 			$asset->add([
 							['jquery', 'vendor/jquery/jquery.min.js'],
 							['jquery-ui', 'vendor/jqueryui/jquery-ui.min.js', ['jquery']]
