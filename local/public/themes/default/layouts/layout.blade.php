@@ -19,9 +19,11 @@
               });
     		</script>
         <!--end::Web font -->
-        <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}">
-        <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/vendors/base/vendors.bundle.css') }}">
-        <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/admin/assets/core/demo/default/base/style.bundle.css') }}">
+        <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/default/assets/core/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}">
+        <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/default/assets/core/vendors/base/vendors.bundle.css') }}">
+        <link media="all" type="text/css" rel="stylesheet" href="{{ asset('local/public/themes/default/assets/core/demo/default/base/style.bundle.css') }}">
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
         <title>@get('title')</title>
 
         <!-- @styles() -->
@@ -40,14 +42,14 @@
         <!-- <script src="{{ asset('local/public/themes/admin/assets/core/vendors/langlist_datagrid.js') }}"></script> -->
 
 
-        <script src="{{ asset('local/public/themes/admin/assets/core/vendors/base/vendors.bundle.js') }}"></script>
+        <script src="{{ asset('local/public/themes/default/assets/core/vendors/base/vendors.bundle.js') }}"></script>
 
-        <script src="{{ asset('local/public/themes/admin/assets/core/demo/default/base/scripts.bundle.js') }}"></script>
-        <script src="{{ asset('local/public/themes/admin/assets/core/vendors/hotkey.js') }}"></script>
-        <script src="{{ asset('local/public/themes/admin/assets/core/vendors/custom_admin.js') }}"></script>
-        <script src="{{ asset('local/public/themes/admin/assets/core/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
-        <script src="{{ asset('local/public/themes/admin/assets/core/app/js/dashboard.js') }}"></script>
-        <script src="{{ asset('local/public/themes/admin/assets/core/vendors/users_list.js') }}"></script>
+        <script src="{{ asset('local/public/themes/default/assets/core/demo/default/base/scripts.bundle.js') }}"></script>
+        <script src="{{ asset('local/public/themes/default/assets/core/vendors/hotkey.js') }}"></script>
+        <script src="{{ asset('local/public/themes/default/assets/core/vendors/custom_admin.js') }}"></script>
+        <script src="{{ asset('local/public/themes/default/assets/core/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
+        <script src="{{ asset('local/public/themes/default/assets/core/app/js/dashboard.js') }}"></script>
+        <script src="{{ asset('local/public/themes/default/assets/core/vendors/users_list.js') }}"></script>
 
         <script type="text/javascript">
         BASE_URL=$('meta[name="csrf-base"]').attr('content');
