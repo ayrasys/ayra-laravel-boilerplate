@@ -10,7 +10,7 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use \Cache;
 // use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
@@ -49,5 +49,9 @@ class User extends Authenticatable
         return SlugOptions::create()
             ->generateSlugsFrom('username')
             ->saveSlugsTo('slug');
+    }
+    public function isOnline()
+    {
+        return Cache::has('user-is-online-' . $this->id);
     }
 }

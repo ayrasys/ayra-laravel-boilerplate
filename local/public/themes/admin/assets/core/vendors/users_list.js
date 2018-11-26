@@ -112,6 +112,9 @@ var DatatableUsersList = {
                 field: "name",
                 title: "Name"
             },{
+                field: "currently",
+                title: "current Status"
+            },{
                 field: "status",
                 title: "Status",
                 template: function(t) {

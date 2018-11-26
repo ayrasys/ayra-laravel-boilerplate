@@ -12,6 +12,7 @@ use DB;
 use Hash;
 use Theme;
 use Auth;
+
 use App\Helpers\AyraHelp;
 use Illuminate\Support\Facades\Redis;
 include 'class-list-util.php';
@@ -41,10 +42,13 @@ class UserController extends Controller
     $i=0;
    foreach ($users_arr as $key => $value) {
      $i++;
+
+
     $data_arr[]=array(
       'id' => $i,
       'rowid' => $value->id,
-      'name' => $value->name,
+      'name' =>  $value->name,
+      'currently' =>  $value->isOnline() ? 'online':'Offline',
       'email' => $value->email,
       'role' =>  $value->getRoleNames()[0],
       'status' =>  $value->status

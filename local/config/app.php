@@ -228,6 +228,7 @@ return [
         'Theme' => Facuz\Theme\Facades\Theme::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'AyraHelp' => App\Helpers\AyraHelp::class,
+        
 
 
     ],
