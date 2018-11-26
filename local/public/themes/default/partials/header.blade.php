@@ -1041,6 +1041,7 @@ m-dropdown-toggle="click" id="m_quicksearch" m-quicksearch-mode="dropdown" m-dro
           </div>
         </div>
       </div>
+      
     </header>
     <!-- END: Header -->
   <!-- begin::Body -->

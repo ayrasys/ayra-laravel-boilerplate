@@ -27,6 +27,7 @@ return array(
 	| [Notice] these event can be override by package config.
 	|
 	*/
+	
 
 	'events' => array(
 
@@ -34,6 +35,10 @@ return array(
 		{
 			$theme->setTitle('Home Front');
 			$theme->setAuthor('Jonh Doe');
+			$theme->setKeywords('online exam, exam preparation, online practice, free online test, MCA, GRE, SAT, GMAT, English, NTSE, CBSE XI/XII, IELTS, TOEFL, GATE, LAW, medical, engineering');
+			$theme->setDescription('Examclass.in, Online Test Series for Railways, SSC, Bank, Gate, Delhi Police Exams. Practice Free Mock Test for Competitive Exams Online. ✯ Practice 40000 Questions Free ✯ Get Daily Updated GK & Current Affairs ✯');
+
+			
 		},
 
 		'asset' => function($asset)
