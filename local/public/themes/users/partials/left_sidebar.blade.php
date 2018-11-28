@@ -1,18 +1,17 @@
 <!-- begin::Body -->
-<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+<div  class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
 				<!-- BEGIN: Left Aside -->
 				<button class="m-aside-left-close  m-aside-left-close--skin-light " id="m_aside_left_close_btn">
 					<i class="la la-close"></i>
 				</button>
-				<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-light ">
+				<div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-light " style="background:#f2f3f8;" >
 					<!-- BEGIN: Aside Menu -->
 	<div
 		id="m_ver_menu"
 		class="m-aside-menu  m-aside-menu--skin-light m-aside-menu--submenu-skin-light "
 		m-menu-vertical="1"
-		 m-menu-scrollable="0" m-menu-dropdown-timeout="500"
-		>
-						<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+		 m-menu-scrollable="0" m-menu-dropdown-timeout="500">
+						<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow " style="position:fixed">
 							<li class="m-menu__section m-menu__section--first">
 								<h4 class="m-menu__section-text">
 									{{ Auth::user()->name}}

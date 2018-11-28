@@ -37,11 +37,14 @@ class HomeController extends Controller
         $user_role='GUEST';
        }
        
+      
+     
        switch($user_role){
         case 'Admin': 
         return $this->AdminDashboard();
         break;
-        case 'User': 
+        case 'User':       
+
         return $this->UserDashboard();
         break;
         
@@ -59,6 +62,7 @@ class HomeController extends Controller
         return $theme->scope('index', $data)->render();
     }
     public function UserDashboard(){
+      
         $theme = Theme::uses('users')->layout('layout');
         $data = ['info' => 'Hello World'];        
         return $theme->scope('index', $data)->render();
