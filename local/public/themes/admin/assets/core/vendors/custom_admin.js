@@ -29,7 +29,7 @@ $.key('esc', function() {
 });
 
 $.key('ctrl+c', function() {
-    alert('Your Press Ctrl+c');
+    //alert('Your Press Ctrl+c');
 });
 $(document).key('ctrl+shift+a', function() {
     //alert('ctrl+shift+a');

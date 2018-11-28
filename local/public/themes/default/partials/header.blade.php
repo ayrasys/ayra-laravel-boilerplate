@@ -5,7 +5,7 @@
       <div class="m-container m-container--fluid m-container--full-height">
         <div class="m-stack m-stack--ver m-stack--desktop">
           <!-- BEGIN: Brand -->
-          <div class="m-stack__item m-brand  m-brand--skin-dark ">
+          <div class="m-stack__item m-brand  m-brand--skin-dark" style="background:#FFFFFF">
             <div class="m-stack m-stack--ver m-stack--general">
               <div class="m-stack__item m-stack__item--middle m-brand__logo">
                 <a href="index.html" class="m-brand__logo-wrapper">
@@ -62,7 +62,7 @@
                           <i class="m-menu__link-icon flaticon-file"></i>
                           <span class="m-menu__link-text">
                             Create New Post
-                          
+
                           </span>
                         </a>
                       </li>
@@ -1031,11 +1031,16 @@ m-dropdown-toggle="click" id="m_quicksearch" m-quicksearch-mode="dropdown" m-dro
                     </div>
                   </li>
                   <li id="m_quick_sidebar_toggle" class="m-nav__item">
-                    <a href="#" class="m-nav__link m-dropdown__toggle">
-                      <span class="m-nav__link-icon">
-                        <i class="flaticon-grid-menu"></i>
-                      </span>
+                    <a href="#" class="btn btn-default m-btn m-btn--icon m-btn--icon-only m-btn--custom m-btn--pill"
+    style="margin-top: 15px; border:1px solid #001c38;"
+
+>
+<i class="fa fa-user"><i class="la la-align-justify" style="font-size:13px;"></i></i>
+
+
+
                     </a>
+
                   </li>
                 </ul>
               </div>
@@ -1044,7 +1049,7 @@ m-dropdown-toggle="click" id="m_quicksearch" m-quicksearch-mode="dropdown" m-dro
           </div>
         </div>
       </div>
-      
+
     </header>
     <!-- END: Header -->
   <!-- begin::Body -->
