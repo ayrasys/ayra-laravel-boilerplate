@@ -17,6 +17,11 @@ Use App\User;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::post('/getUsersList','UserController@getUsersList')->name('getUsersList');
 Route::post('/getUserDetails','UserController@getUserDetails')->name('getUserDetails');//get user details by id
 Route::post('/deleteUser','UserController@deleteUser')->name('deleteUser');//delete user bu id
+
+Route::post('/getRolesList','RoleController@getRolesList')->name('getRolesList');
+Route::post('/getRolesDetails','RoleController@getRolesDetails')->name('getRolesDetails');//get user details by id
+Route::post('/deleteRoles','RoleController@deleteRoles')->name('deleteRoles');//delete user bu id
