@@ -1,36 +1,86 @@
-$("#editProfileName").click(function(event){
-    event.preventDefault();
-    $('.editProfileName').css('background','',).css('border-color','#F1F1F1');
-    $('.editProfileName').removeAttr("disabled");
-    $('.editProfileNameSave').css("display","block");
+var DOMReady = function() {
+    var t = function() {
+      
+            $("#m_form_3").validate({
+                  rules: {
+                      name: {
+                          required: !0
+                      },
+                      phone: {
+                          required: !0
+                      }
+                  },
+                  invalidHandler: function(e, r) {
+                      mUtil.scrollTo("m_form_3", -200), swal({
+                          title: "",
+                          text: "There are some errors in your submission. Please correct them.",
+                          type: "error",
+                          confirmButtonClass: "btn btn-secondary m-btn m-btn--wide",
+                          onClose: function(e) {
+                              console.log("on close event fired!")
+                          }
+                      }), e.preventDefault()
+                  },
+                  submitHandler: function(e) {
+                      return swal({
+                          title: "",
+                          text: "Form validation passed. All good!",
+                          type: "success",
+                          confirmButtonClass: "btn btn-secondary m-btn m-btn--wide"
+                      }), !1
+                  }
+              }),
 
-});
-  $('#btnSaveProfile').click(function(){
-    $('.editProfileName').attr("disabled", "disabled");
-    $('.editProfileNameSave').css("display","none");
 
-  });
+      $("#editProfileName").click(function(event){
+          event.preventDefault();
+          $('.editProfileName').css('background','',).css('border-color','#F1F1F1');
+          $('.editProfileName').removeAttr("disabled");
+          $('.editProfileNameSave').css("display","block");
 
-  $("#editProfileAddress").click(function(event){
-      event.preventDefault();
-      $('.editProfileName').css('background','',).css('border-color','#F1F1F1');
-      $('.editProfileName').removeAttr("disabled");
-      $('.editProfileNameAddress').css("display","block");
+      }),
+      $('#btnSaveProfile').click(function(){
+        $('.editProfileName').attr("disabled", "disabled");
+        $('.editProfileNameSave').css("display","none");
 
-  });
-  $('#btnSaveProfileAddress').click(function(){
-    alert('address');
-    $('.editProfileName').attr("disabled", "disabled");
-    $('.editProfileNameAddress').css("display","none");
+      }),
+      $("#editProfileAddress").click(function(event){
+          event.preventDefault();
+          $('.editProfileName').css('background','',).css('border-color','#F1F1F1');
+          $('.editProfileName').removeAttr("disabled");
+          $('.editProfileNameAddress').css("display","block");
 
-  });
-$.key('esc', function() {
-   // alert('esc');
-});
+      }),
+      $('#btnSaveProfileAddress').click(function(){
+        alert('address');
+        $('.editProfileName').attr("disabled", "disabled");
+        $('.editProfileNameAddress').css("display","none");
 
-$.key('ctrl+c', function() {
-    alert('Your Press Ctrl+c');
-});
-$(document).key('ctrl+shift+a', function() {
-    //alert('ctrl+shift+a');
+      }),
+      $.key('esc', function() {
+         // alert('esc');
+      }),
+      $.key('ctrl+c', function() {
+          alert('Your Press A Ctrl+c');
+      }),
+      $.key('ctrl+c', function() {
+          //alert('Your Press Ctrl+c');
+      }),
+      $(document).key('ctrl+shift+a', function() {
+          //alert('ctrl+shift+a');
+      })
+
+
+
+
+    }
+  return {
+      init: function() {
+          t()
+      }
+  }
+
+}();
+jQuery(document).ready(function() {
+    DOMReady.init()
 });

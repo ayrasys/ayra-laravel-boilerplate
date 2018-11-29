@@ -91,7 +91,7 @@ Logs
 <div class="m-messenger__wrapper">
   <div class="m-messenger__message m-messenger__message--in">
     <div class="m-messenger__message-pic">
-      <img src="../assets/app/media/img//users/user3.jpg"  alt=""/>
+      <img src="https://www.shareicon.net/data/2016/08/05/806962_user_512x512.png"  alt=""/>
     </div>
     <div class="m-messenger__message-body">
       <div class="m-messenger__message-arrow"></div>
@@ -168,7 +168,7 @@ Logs
 <div class="m-messenger__wrapper">
   <div class="m-messenger__message m-messenger__message--in">
     <div class="m-messenger__message-pic">
-      <img src="../assets/app/media/img//users/user3.jpg"  alt=""/>
+      <img src="https://www.shareicon.net/data/2016/08/05/806962_user_512x512.png"  alt=""/>
     </div>
     <div class="m-messenger__message-body">
       <div class="m-messenger__message-arrow"></div>
