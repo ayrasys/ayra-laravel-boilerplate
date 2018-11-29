@@ -48,6 +48,7 @@
         <script src="{{ asset('local/public/themes/admin/assets/core/app/js/dashboard.js') }}"></script>
         <script src="{{ asset('local/public/themes/admin/assets/core/vendors/users_list.js') }}"></script>
         <script src="{{ asset('local/public/themes/admin/assets/core/vendors/roles_list.js') }}"></script>
+        <script src="https://keenthemes.com/metronic/themes/themes/metronic/dist/preview/assets/demo/default/custom/crud/forms/widgets/select2.js"></script>
 
         <script type="text/javascript">
         BASE_URL=$('meta[name="csrf-base"]').attr('content');

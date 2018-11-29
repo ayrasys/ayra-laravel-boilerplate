@@ -51,6 +51,8 @@
         <script src="{{ asset('local/public/themes/default/assets/core/app/js/dashboard.js') }}"></script>
         <script src="{{ asset('local/public/themes/default/assets/core/vendors/users_list.js') }}"></script>
 
+
+
         <script type="text/javascript">
         BASE_URL=$('meta[name="csrf-base"]').attr('content');
         CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');

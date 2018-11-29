@@ -36,12 +36,23 @@ function edit_user(rowid){
      type: 'POST',
      data: {_token: CSRF_TOKEN,user_id:rowid},
      success: function (resp) {
-        console.log(resp);
-          $('#edit_txtUserName').val(resp.name);
+          console.log(resp);
+          $('input[name="name"]').val(resp.name);
+          $('input[name="email"]').val(resp.email);
+          $('input[name="roles"]').val(resp.roles);
+
+          $('.rolelistClass').html("");
+            $.each(resp.roles_list, function (key, val) {
+                if(val==resp.user_role){
+
+                  $('.rolelistClass').append('<option selected value="'+val+'">'+val+'</option>');
+                }else{
+                    $('.rolelistClass').append('<option value="'+val+'">'+val+'</option>');
+                }
+            });
           $('#m_edit_users').modal('show');
      }
  });
-
 
 }
 function view_user(rowid){

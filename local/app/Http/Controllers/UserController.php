@@ -23,6 +23,9 @@ class UserController extends Controller
     {
         //$this->middleware('auth');
     }
+
+
+
     public function deleteUser(Request $request){
     User::find($request->user_id)->delete();
      //return true;
@@ -33,7 +36,22 @@ class UserController extends Controller
 
     }
     public function getUserDetails(Request $request){
-        return $users_arr=User::where('id', $request->user_id)->first();
+         $users_arr=User::where('id', $request->user_id)->first();
+         $roles_arr = \Spatie\Permission\Models\Role::all();
+         $role_list= array();
+
+         foreach ($roles_arr as $key => $value) {
+           $role_list[]=$value->name;
+         }
+
+         $user_data =array(
+           'name' =>$users_arr['name'],
+           'email' =>$users_arr['email'],
+           'roles_list' =>$role_list,
+           'user_role' =>$users_arr->getRoleNames()[0]
+
+       );
+      return $user_data;
     }
     public function getUsersList(Request $request){
 
@@ -190,7 +208,7 @@ class UserController extends Controller
 
 
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *

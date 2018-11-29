@@ -183,10 +183,12 @@
 						<!--begin::Modal-->
 												<div class="modal fade" id="m_edit_users" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 													<div class="modal-dialog modal-lg" role="document">
+														<form  action="{{ route('users.update',1)}}" data-redirect="http://dev.local/" method="post">
+																{{ method_field('PATCH') }}
 														<div class="modal-content">
 															<div class="modal-header">
 																<h5 class="modal-title" id="exampleModalLabel">
-																	Edit User Details
+																	Edit User Details  Aja
 																</h5>
 																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 																	<span aria-hidden="true">
@@ -196,6 +198,7 @@
 															</div>
 															<div class="modal-body">
 																<!-- row data  -->
+
 																<div class="row">
 																			<div class="col-xl-8 offset-xl-2">
 																				<div class="m-form__section m-form__section--first">
@@ -204,7 +207,7 @@
 																							* Name:
 																						</label>
 																						<div class="col-xl-9 col-lg-9">
-																							<input type="text" name="name" id="edit_txtUserName"  class="form-control m-input" placeholder="" value="Nick Stone">
+																							<input type="text" name="name"   class="form-control m-input" placeholder="" value="Nick Stone">
 																							<span class="m-form__help">
 
 																							</span>
@@ -216,17 +219,57 @@
 																							* Email:
 																						</label>
 																						<div class="col-xl-9 col-lg-9">
-																							<input type="email" name="email"  class="form-control m-input" placeholder="" value="nick.stone@gmail.com">
+																							<input type="email" name="email"  class="form-control m-input" placeholder="">
 																							<span class="m-form__help">
 
 																							</span>
 																						</div>
 																					</div>
+																					<div class="form-group m-form__group row">
+																						<label class="col-xl-3 col-lg-3 col-form-label">
+																							* Password:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<input type="password" name="password" class="form-control m-input" placeholder="">
+																							<span class="m-form__help">
+
+																							</span>
+																						</div>
+																					</div>
+																					<div class="form-group m-form__group row">
+																						<label class="col-xl-3 col-lg-3 col-form-label">
+																							* Confirm Password:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<input type="password" name="confirm-password" class="form-control m-input" placeholder="" >
+																							<span class="m-form__help">
+
+																							</span>
+																						</div>
+																					</div>
+																					<div class="form-group m-form__group row">
+																						<label class="col-xl-3 col-lg-3 col-form-label">
+																							* Role:
+																						</label>
+																						<div class="col-xl-9 col-lg-9">
+																							<select class="form-control m-input m-input--square rolelistClass" name="roles">
+
+																							</select>
+																						</div>
+																					</div>
+
+																					<!--begin::Form-->
+
+
+
+
+
 
 																				</div>
 																				<div class="m-separator m-separator--dashed m-separator--lg"></div>
 																			</div>
 																		</div>
+
 
 																<!-- row data  -->
 
@@ -235,11 +278,12 @@
 																<button type="button" class="btn btn-secondary" data-dismiss="modal">
 																	Close
 																</button>
-																<button type="button" class="btn btn-primary">
-																	Send message
+																<button type="button" class="btn btn-primary btnActionUpdate">
+																	Save Changes
 																</button>
 															</div>
 														</div>
+													</form>
 													</div>
 												</div>
 												<!--end::Modal-->

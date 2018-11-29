@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 
 class ProductController extends Controller
-{ 
+{
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +21,7 @@ class ProductController extends Controller
          $this->middleware('permission:product-create', ['only' => ['create','store']]);
          $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
 
- 
+
          $this->middleware('permission:product-delete', ['only' => ['destroy']]);
     }
     /**
@@ -64,9 +64,16 @@ class ProductController extends Controller
 
         Product::create($request->all());
 
+        $product_arr=array(
+        			"st"    => "success",
+        			"label" => "bg-light-green",
+        			"txt"   =>'Update successfully'
+        		);
+      return $product_arr;
 
-        return redirect()->route('products.index')
-                        ->with('success','Product created successfully.');
+
+        //return redirect()->route('products.index')
+                      //  ->with('success','Product created successfully.');
     }
 
 
