@@ -45,7 +45,7 @@ function edit_user(rowid){
             $.each(resp.roles_list, function (key, val) {
                 if(val==resp.user_role){
 
-                  $('.rolelistClass').append('<option selected value="'+val+'">'+val+'</option>');
+                  $('.rolelistClass').append('<option  value="'+val+'">'+val+'</option>');
                 }else{
                     $('.rolelistClass').append('<option value="'+val+'">'+val+'</option>');
                 }
@@ -192,70 +192,4 @@ var DatatableUsersList = {
 };
 jQuery(document).ready(function() {
     DatatableUsersList.init();
-
-
-
-});
-
-$(document).ready(function() {
-         // alert('test');
-         //
-         //
-$('.backMe').click(function(){
-  window.history.back();
-});
-
-
-$.key('ctrl+k', function() {
-    window.history.back();
-});
-  $.key('ctrl+l', function() {
-
-      swal({
-          title: "Are you sure want to logout?",
-          type: "warning",
-          showCancelButton: !0,
-          confirmButtonText: "Yes, Log me out!",
-          cancelButtonText: "No, cancel!",
-          reverseButtons: !0
-      }).then(function(ey) {
-        if(ey.value){
-
-          $.ajax({
-               url:BASE_URL+"/logout",
-               type: 'POST',
-               data: {_token: CSRF_TOKEN},
-               success: function (resp) {
-                  window.location.href=BASE_URL;
-               }
-           });
-
-        }
-
-      })
-
-});
-
-
-
-
-
-
-
-  })
-
-  // setTimeout(function(){
-  //    window.location.reload(1);
-  // }, 10000);
-
-$.key('alt+p', function() {
-    alert('esc');
-});
-
-$.key('ctrl+c', function() {
-    alert('ctrl+c');
-});
-
-$(document).key('ctrl+shift+a', function() {
-  window.location.href=BASE_URL;
 });

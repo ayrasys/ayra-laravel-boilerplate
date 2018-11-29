@@ -39,11 +39,9 @@ class UserController extends Controller
          $users_arr=User::where('id', $request->user_id)->first();
          $roles_arr = \Spatie\Permission\Models\Role::all();
          $role_list= array();
-
          foreach ($roles_arr as $key => $value) {
            $role_list[]=$value->name;
          }
-
          $user_data =array(
            'name' =>$users_arr['name'],
            'email' =>$users_arr['email'],
@@ -323,11 +321,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
-
-
         $user->assignRole($request->input('roles'));
-
-
         return redirect()->route('users.index')
                         ->with('success','User updated successfully');
     }

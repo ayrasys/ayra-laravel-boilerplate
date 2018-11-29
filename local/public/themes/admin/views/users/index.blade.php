@@ -36,6 +36,24 @@
 			<div class="m-portlet__head-title">
 				<h3 class="m-portlet__head-text">
 					Users List<small></small>
+
+					<form id="m_form_3" action="index.html" method="post">
+						<div class="form-group m-form__group row">
+				<label class="col-form-label col-lg-3 col-sm-12">US Phone</label>
+				<div class="col-lg-4 col-md-9 col-sm-12">
+					<div class="input-group">
+						<input type="text" class="form-control m-input" name="phone" placeholder="Enter phone">
+						<div class="input-group-append"><a href="#" class="btn btn-brand"><i class="la la-phone"></i></a></div>
+					</div>
+					<span class="m-form__help">Please enter your US phone number</span>
+				</div>
+			</div>
+			
+							<button type="submit" name="button" id="submitbutton">Hit Me</button>
+					</form>
+
+
+
 				</h3>
 			</div>
 		</div>
@@ -258,6 +276,12 @@
 																						</div>
 																					</div>
 
+
+
+
+
+
+
 																					<!--begin::Form-->
 
 
@@ -284,6 +308,9 @@
 															</div>
 														</div>
 													</form>
+
+
+
 													</div>
 												</div>
 												<!--end::Modal-->
