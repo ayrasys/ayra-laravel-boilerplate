@@ -25,3 +25,5 @@ Route::post('/deleteUser','UserController@deleteUser')->name('deleteUser');//del
 Route::post('/getRolesList','RoleController@getRolesList')->name('getRolesList');
 Route::post('/getRolesDetails','RoleController@getRolesDetails')->name('getRolesDetails');//get user details by id
 Route::post('/deleteRoles','RoleController@deleteRoles')->name('deleteRoles');//delete user bu id
+
+//added alpha
