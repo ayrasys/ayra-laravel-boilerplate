@@ -17,6 +17,8 @@ class HomeController extends Controller
     {
         //$this->middleware('guest');
     }
+    
+//this controller is used for indentify users
 
     /**
      * Show the application dashboard.
@@ -26,6 +28,7 @@ class HomeController extends Controller
     public function index()
     {
 
+        $aj="981144";
 
        //$users = User::role('admin')->get();
        $userRoles=[];
