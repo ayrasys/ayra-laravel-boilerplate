@@ -17,6 +17,8 @@ class HomeController extends Controller
     {
         //$this->middleware('guest');
     }
+    
+//this controller is used for indentify users
 
     /**
      * Show the application dashboard.
