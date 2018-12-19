@@ -46,10 +46,8 @@ class HomeController extends Controller
         return $this->AdminDashboard();
         break;
         case 'User':
-
         return $this->UserDashboard();
         break;
-
         default:
         return $this->Front();
         break;
@@ -66,7 +64,7 @@ class HomeController extends Controller
     public function UserDashboard(){
 
         $theme = Theme::uses('users')->layout('layout');
-        $data = ['info' => 'Hello World'];
+        $data = ['info' => 'This is user information'];
         return $theme->scope('index', $data)->render();
     }
     public function Front(){
