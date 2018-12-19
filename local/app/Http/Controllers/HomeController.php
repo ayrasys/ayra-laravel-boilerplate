@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $aj="9811";
+        $aj="981144";
 
        //$users = User::role('admin')->get();
        $userRoles=[];
