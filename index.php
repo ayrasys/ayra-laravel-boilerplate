@@ -9,6 +9,8 @@
 
 define('LARAVEL_START', microtime(true));
 /* this bhagya edi */
+
+/* this is proper way to commnicate */
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
